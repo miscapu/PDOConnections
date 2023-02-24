@@ -29,13 +29,13 @@ class Product{
         }
     }
 
-    public function selectProducts( $name    =   null,  $id = null ){
+    public function selectProducts( $id    =   null,  $name = null ){
         // connect to DB teste1
 //        $stmt   =   $this->connection->prepare( "SELECT * FROM ".$this->table." WHERE name = :name" );
-        $query      =   "SELECT * FROM ".$this->table." WHERE name=:name AND id=:id";
+        $query      =   "SELECT * FROM ".$this->table." WHERE id=:id AND name=:name";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam( ":name", $name );
         $stmt->bindParam( ":id", $id );
+        $stmt->bindParam( ":name", $name );
         $stmt->execute();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             return $row;
@@ -43,7 +43,7 @@ class Product{
     }
 }
 //debug
-$instanceProduct    =   new Product( 'products' );
-echo "<pre>";
-print_r( $instanceProduct->selectProducts( 'Miguel', 1 ) );
-echo "</pre>";
+//$instanceProduct    =   new Product( 'products' );
+//echo "<pre>";
+//print_r( $instanceProduct->selectProducts( '1', 'Miguel' ) );
+//echo "</pre>";

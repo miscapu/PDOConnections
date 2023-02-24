@@ -15,12 +15,11 @@ include __DIR__."/../Layouts/header.php";
         </tr>
         </thead>
         <tbody>
-
         <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><?=  isset($products ) ? $products[ 'id' ]: "";?></th>
+            <td><?=  isset($products ) ? $products[ 'name' ]: "";?></td>
+            <td><?=  isset($products ) ? $products[ 'price' ]: "";?></td>
+            <td><?=  isset($products ) ? $products[ 'description' ]: "";?></td>
         </tr>
 
         </tbody>
